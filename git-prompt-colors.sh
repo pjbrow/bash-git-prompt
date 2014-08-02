@@ -22,7 +22,7 @@ GIT_PROMPT_COMMAND_OK="${Green}✓"    # indicator if the last command returned 
 GIT_PROMPT_COMMAND_FAIL="${Red}✘"   # indicator if the last command returned with an exit code of other than 0
 
 GIT_PROMPT_START_USER="\n${Green}\u @ ${Yellow}${PathShort}${ResetColor}"
-GIT_PROMPT_START_ROOT="${Yellow}${PathShort}${ResetColor}"
+GIT_PROMPT_START_ROOT="\n${Yellow}${PathShort}${ResetColor}"
 GIT_PROMPT_END_USER=" \n${White}${ResetColor}$ "
 GIT_PROMPT_END_ROOT=" \n${White}${Time12a}${ResetColor} # "
 

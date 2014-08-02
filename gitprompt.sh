@@ -41,7 +41,7 @@ function git_prompt_config()
   local Yellow="\[\033[0;33m\]"
   local White='\[\033[37m\]'
   local Red="\[\033[0;31m\]"
-  local Blue="\[\033[0;34m\]"
+  local Blue="\[\033[0;36m\]"
   local Cyan="\[\033[0;36m\]"
   local Green="\[\033[0;32m\]"
 
@@ -144,7 +144,7 @@ function git_prompt_config()
     EMPTY_PROMPT=$OLD_GITPROMPT
   else
     if [[ -n "${VIRTUAL_ENV}" ]]; then
-      EMPTY_PROMPT="${LAST_COMMAND_INDICATOR}(${Blue}$(basename "${VIRTUAL_ENV}")${ResetColor}) ${PROMPT_START}$($prompt_callback)${PROMPT_END}"
+      EMPTY_PROMPT="${LAST_COMMAND_INDICATOR}\n(${Blue}$(basename "${VIRTUAL_ENV}")${ResetColor}) ${PROMPT_START}$($prompt_callback)${PROMPT_END}"
     elif [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
       EMPTY_PROMPT="${LAST_COMMAND_INDICATOR}(${Blue}$(basename "${CONDA_DEFAULT_ENV}")${ResetColor}) ${PROMPT_START}$($prompt_callback)${PROMPT_END}"
     else
@@ -235,7 +235,7 @@ function updatePrompt() {
   local EMPTY_PROMPT
   local GIT_PROMPT_FETCH_TIMEOUT
   local __GIT_STATUS_CMD
-  local Blue="\[\033[0;34m\]"
+  local Blue="\[\033[0;36m\]"
 
   git_prompt_config
 
@@ -291,7 +291,7 @@ function updatePrompt() {
 
     PS1="${LAST_COMMAND_INDICATOR}${PROMPT_START}$($prompt_callback)${STATUS}${PROMPT_END}"
     if [[ -n "${VIRTUAL_ENV}" ]]; then
-      PS1="(${Blue}$(basename ${VIRTUAL_ENV})${ResetColor}) ${PS1}"
+      PS1="\n(${Blue}$(basename ${VIRTUAL_ENV})${ResetColor}) ${PS1}"
     fi
 
     if [[ -n "${CONDA_DEFAULT_ENV}" ]]; then
